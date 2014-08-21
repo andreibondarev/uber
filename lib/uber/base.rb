@@ -2,6 +2,6 @@ require 'pry'
 # require 'httparty'
 
 module Uber
-	class Base
-	end
+  class Base
+  end
 end
