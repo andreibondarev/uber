@@ -1,5 +1,8 @@
 require "uber/version"
+require "uber/client"
 
 module Uber
-  # Your code goes here...
+  class Error < StandardError; end
+  class InvalidArgumentError < Error; end
+  class AuthenticationError < Error; end
 end
