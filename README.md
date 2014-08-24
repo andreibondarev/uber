@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
+Initialize the client:
 
+    client = Uber::Client.new(server_token: '...', client_id: '...', secret: '...')
+## Products
+
+## Price Estimates
+
+## Time Estimates
 
 ## Contributing
 
