@@ -44,6 +44,18 @@ module Uber
       end
     end
 
+    def products
+      Uber::Products.new(self)
+    end
+
+    def price_estimates
+      Uber::PriceEstimates.new(self)
+    end
+
+    def time_estimates
+      Uber::TimeEstimates.new(self)
+    end
+
   private
     def has_token?
       server_token
