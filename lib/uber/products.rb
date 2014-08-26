@@ -1,10 +1,19 @@
 module Uber
-  class Products < Uber::Base
-    def self.list
-      # binding.pry
-      # TODO figure out why HTTParty constant is not found
-      # and require 'httparty' won't work
-      HTTParty.get('https://api.uber.com/v1/products')
+  class Products
+    attr_reader :client
+
+    def path
+      'products'
+    end
+
+    def initialize(client)
+      @client = client
+    end
+
+    def list(latitude, longitude)
+      # TODO validate parameters
+      # TODO figure out how to send server_token by default
+      client.connection.get(path, { server_token: client.server_token, latitude: latitude, longitude: longitude})
     end
   end
 end

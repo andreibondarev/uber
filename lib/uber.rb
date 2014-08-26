@@ -1,18 +1,11 @@
-require 'uber/version'
-require 'uber/base'
-require 'uber/products'
+require "uber/version"
+require "uber/client"
+require "uber/products"
+require "uber/price_estimates"
+require "uber/time_estimates"
 
-class MyRailtie < Rails::Railtie
-  initializer 'configure_omniauth_uber' do
-    def initialize
-      Rails.application.config.middleware.use ::OmniAuth::Builder do
-        provider :uber, ENV['UBER_CLIENT_ID'], ENV['UBER_CLIENT_SECRET'], scope: 'profile,history'
-      end
-    end
-  end
+module Uber
+  class Error < StandardError; end
+  class InvalidArgumentError < Error; end
+  class AuthenticationError < Error; end
 end
-
-# module Uber
-#   class Client
-#   end
-# end
